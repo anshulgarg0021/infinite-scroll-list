@@ -1,3 +1,35 @@
-.login-page{
-    background-color: pink;
+.login-page {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .text {
+    margin: 10px;
+    height: 50px;
+    width: 300px;
+  }
+  .password {
+    margin: 10px;
+    height: 50px;
+    width: 300px;
+  }
+  .submit-button {
+    border: 1px solid black;
+    background-color: darkolivegreen;
+    height: 20px;
+    width: 100px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+body > #root > div {
+  height: 100vh;
 }

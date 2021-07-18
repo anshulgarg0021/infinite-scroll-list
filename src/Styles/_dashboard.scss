@@ -1,0 +1,88 @@
+.home-page {
+  overflow-y: hidden;
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    background-color: #ee5166;
+    background-image: linear-gradient(315deg, #ee5166 0%, #f08efc 74%);
+
+    h1 {
+      cursor: pointer;
+      font-family: "Lucida Console", "Courier New", monospace;
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      background-color: yellow;
+      border-radius: 55px;
+      padding: 5px;
+    }
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 60px;
+      cursor: pointer;
+      margin: 10px;
+    }
+  }
+  .home-content {
+    display: flex;
+    justify-content: center;
+    background-color: #861657;
+    background-image: linear-gradient(326deg, #861657 0%, #ffa69e 74%);
+
+    .list-view {
+      width: 30%;
+      max-width: 580px;
+      margin-top: 15px;
+      border-radius: 15px;
+      border: 1px solid red;
+      background-color: floralwhite;
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .contacts {
+        align-self: center;
+        background-color: #eec0c6;
+        background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+      }
+      @media only screen and (max-width: 900px) {
+        width: 70%;
+      }
+      @media only screen and (max-width: 500px) {
+        width: 100%;
+      }
+      .list-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        overflow-y: scroll;
+        box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+        padding: 30px;
+        border-radius: 15px;
+
+        p {
+          text-transform: capitalize;
+          font-family: "Lucida Console", "Courier New", monospace;
+          font-weight: 900;
+        }
+        img {
+          height: 100px;
+          width: 100px;
+          border-radius: 100px;
+        }
+      }
+      .list-item:first-child {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+.tab-loader {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+
+  img {
+    width: 75px;
+  }
+}

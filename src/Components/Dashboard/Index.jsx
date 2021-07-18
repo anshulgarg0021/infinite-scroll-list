@@ -1,25 +1,44 @@
-import React, { useState, useEffect }  from 'react'
-import { connect } from 'react-redux';
-import {fetchUsers} from "../../Actions/dashboard"
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchUsers } from "../../Actions/dashboard";
 
-const Index=({fetchUsers,Dashboard})=> {
-    useEffect(() => {
-        fetchUsers(10);
-      },[]);
-     
-    return (
-        <div>
-            Index
-        </div>
-    )
-}
+//components
+import ListView from "../CommonComponents/ListView/Index";
 
-const mapStateToProps = state => ({
-    ...state
-   })
+//assets
+import ShadiLogo from "../../Assets/Images/shadLogo.jpeg";
 
-const mapDispatchToProps = dispatch => ({
-    fetchUsers: (limit) => dispatch(fetchUsers(limit))
-   })
+const Index = ({ fetchUsers, Dashboard, history }) => {
+  useEffect(() => {
+    if (localStorage.getItem("logedIn") !== "true") {
+      history.push("/");
+    }
+    fetchUsers(10);
+  }, []);
 
-export default connect(mapStateToProps,mapDispatchToProps)(Index);
+  const loggoutUser = () => {
+    localStorage.removeItem("logedIn");
+    history.push("/");
+  };
+  return (
+    <div className="home-page">
+      <div className="home-header">
+        <img src={ShadiLogo} alt={"Shaadi"} />
+        <h1 onClick={loggoutUser}>Log Out</h1>
+      </div>
+      <div className="home-content">
+        <ListView list={Dashboard?.data} />
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchUsers: (limit) => dispatch(fetchUsers(limit)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
