@@ -10,6 +10,11 @@ export default (state = {}, action) => {
         ...state,
         loadMoreLoader: action.payload,
       };
+    case "SET_SHOW_NO_DATA":
+      return {
+        ...state,
+        showNoData: action.payload,
+      };
     default:
       return state;
   }

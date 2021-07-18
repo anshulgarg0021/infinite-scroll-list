@@ -16,6 +16,7 @@ const Index = ({ fetchUsers, Dashboard, history }) => {
     fetchUsers(10);
   }, []);
 
+  console.log(Dashboard);
   const loggoutUser = () => {
     localStorage.removeItem("logedIn");
     history.push("/");
@@ -27,7 +28,11 @@ const Index = ({ fetchUsers, Dashboard, history }) => {
         <h1 onClick={loggoutUser}>Log Out</h1>
       </div>
       <div className="home-content">
-        <ListView list={Dashboard?.data} />
+        {Dashboard.showNoData ? (
+          <div className="no-Data">No Data</div>
+        ) : (
+          <ListView list={Dashboard?.data} />
+        )}
       </div>
     </div>
   );

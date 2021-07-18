@@ -24,6 +24,22 @@ export const fetchUsers = (limit, loadMore) => (dispatch) => {
           type: "SET_LOAD_MORE_LOADER",
           payload: false,
         });
+      dispatch({
+        type: "SET_SHOW_NO_DATA",
+        payload: false,
+      });
       return "done";
+    })
+    .catch((err) => {
+      alert("Something went wrong with API. Please try Again");
+      dispatch({
+        type: "SET_LOAD_MORE_LOADER",
+        payload: false,
+      });
+      !loadMore &&
+        dispatch({
+          type: "SET_SHOW_NO_DATA",
+          payload: true,
+        });
     });
 };
